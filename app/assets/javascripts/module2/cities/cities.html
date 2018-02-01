@@ -1,0 +1,22 @@
+<div>
+  <h3>Cities</h3>
+  <span>( from module2/cities/cities.html )</span>
+
+  <form>
+  	<div>
+  	  <label>Name:</label>
+  	  <input name="name" ng-model="citiesVM.city.name" required="required">
+  	  <button class="btn btn-primary" ng-if="!citiesVM.city.id" type="submit" ng-click="citiesVM.create()">Add!</button>
+  	  <p ng-if="citiesVM.city.id">
+  	  	<button class="btn btn-primary" type="submit" ng-click="citiesVM.update()">Update</button>
+  	  	<button class="btn btn-primary" type="submit" ng-click="citiesVM.remove()">Delete</button>
+  	  </p>
+  	</div>
+  </form>
+
+  <ul>
+  	<li ng-repeat="city in citiesVM.cities | orderBy:'name'">
+  	  <a ng-click="citiesVM.edit(city)">{{ city.name }}</a>
+  	</li>
+  </ul>
+</div>
